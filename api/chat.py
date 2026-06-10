@@ -4,6 +4,7 @@ from starlette.responses import StreamingResponse
 from agents.dietitian import chat_dietitian, get_messages_history, clear_messages
 from schemas.chat import ChatRequest
 from typing import List, Optional
+from pydantic import BaseModel
 
 
 router = APIRouter()
