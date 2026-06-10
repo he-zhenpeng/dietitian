@@ -196,7 +196,7 @@ async def chat_dietitian(text: str, images: List[str], thread_id: str):
             message = HumanMessage(content=content_list)
 
         # 流式调用Agent
-        async for chunk, metadata in agent.stream(
+        async for chunk, metadata in agent.astream(
                 {"messages": [message]},
                 {"configurable": {"thread_id": thread_id}},
                 stream_mode="messages"
