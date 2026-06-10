@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from starlette.responses import StreamingResponse
-
+from agents.dietitian import graph
 from agents.dietitian import chat_dietitian, get_messages_history, clear_messages
 from schemas.chat import ChatRequest
 from typing import List, Optional
