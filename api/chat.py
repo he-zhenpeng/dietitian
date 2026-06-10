@@ -3,6 +3,8 @@ from starlette.responses import StreamingResponse
 
 from agents.dietitian import chat_dietitian, get_messages_history, clear_messages
 from schemas.chat import ChatRequest
+from typing import List, Optional
+
 
 router = APIRouter()
 
@@ -18,6 +20,12 @@ router = APIRouter()
 #         chat_dietitian(request.message, request.image_url, request.thread_id),
 #         media_type="text/event-stream"
 #     )
+
+class IAgentChat(BaseModel):
+    message: str
+    thread_id: str
+    image_url: Optional[List[str]] = []
+    
 @router.post("/stream")
 async def chat_stream(params: IAgentChat):
     
